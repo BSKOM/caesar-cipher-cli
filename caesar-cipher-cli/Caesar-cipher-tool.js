@@ -6,7 +6,6 @@ function encoder(math, p) {
   for (let i = 0; i < secret.length; i++){
     let lowerUpper = secret[i].codePointAt(0) > 96 ? 'a'.codePointAt(0) : 'A'.codePointAt(0)
     if ((secret[i] >= 'a' && secret[i] <= 'z') || (secret[i] >= 'A' && secret[i] <= 'Z')){
-      let codeS = (secret[i].codePointAt(0) - lowerUpper + 26 + shift) % 26 + lowerUpper
       res += String.fromCodePoint((secret[i].codePointAt(0) - lowerUpper + 26 + shift % 26) % 26 + lowerUpper)
     } else { 
       res += secret[i]

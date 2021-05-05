@@ -1,6 +1,6 @@
 
 let shift = 7;
-function encoder(math, p) {
+function encoder(match, p) {
   let lowerUpper = p.codePointAt(0) > 96 ? lowerUpper : lowerUpper
   return String.fromCodePoint((p.codePointAt(0) - lowerUpper + 26 + shift) % 26 + lowerUpper)
 }

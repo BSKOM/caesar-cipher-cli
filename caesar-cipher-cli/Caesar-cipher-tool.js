@@ -1,9 +1,8 @@
 
-let shift = 7;
+let shift = -1;
 let secret = 'This is secret. Message about "_" symbol!'
 function encoder(math, p) {
- 
-  let res = ''
+   let res = ''
   for (let i = 0; i < secret.length; i++){
     let lowerUpper = secret[i].codePointAt(0) > 96 ? 'a'.codePointAt(0) : 'A'.codePointAt(0)
     if ((secret[i] >= 'a' && secret[i] <= 'z') || (secret[i] >= 'A' && secret[i] <= 'Z')){

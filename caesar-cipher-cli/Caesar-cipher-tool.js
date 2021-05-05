@@ -1,5 +1,5 @@
 
-let shift = -1;
+let shift = 7;
 let secret = 'This is secret. Message about "_" symbol!'
 function encoder(math, p) {
    let res = ''
@@ -7,7 +7,7 @@ function encoder(math, p) {
     let lowerUpper = secret[i].codePointAt(0) > 96 ? 'a'.codePointAt(0) : 'A'.codePointAt(0)
     if ((secret[i] >= 'a' && secret[i] <= 'z') || (secret[i] >= 'A' && secret[i] <= 'Z')){
       let codeS = (secret[i].codePointAt(0) - lowerUpper + 26 + shift) % 26 + lowerUpper
-      res += String.fromCodePoint((secret[i].codePointAt(0) - lowerUpper + 26 + shift) % 26 + lowerUpper)
+      res += String.fromCodePoint((secret[i].codePointAt(0) - lowerUpper + 26 + shift % 26) % 26 + lowerUpper)
     } else { 
       res += secret[i]
     }

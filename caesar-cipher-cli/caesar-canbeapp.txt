@@ -1,0 +1,25 @@
+str.replace(regexp|substr, newSubStr|function[, flags])
+a-zA-Z (26 букв)
+str.codePointAt(pos) 32bit
+Возвращает код для символа, находящегося на позиции pos:
+A=65 a =97
+// одна и та же буква в нижнем и верхнем регистре
+// будет иметь разные коды
+alert( "z".codePointAt(0) ); // 122
+alert( "Z".codePointAt(0) ); // 90
+
+String.fromCodePoint(code)
+Создаёт символ по его коду code
+alert( String.fromCodePoint(90) ); // Z
+
+
+function replacer(match, p1, p2, p3, offset, string) {
+  // p1 - не цифры, p2 - цифры, p3 - не буквы и не цифры
+  return [p1, p2, p3].join(' - ');
+}
+var newString = 'abc12345#$*%'.replace(/([^\d]*)(\d*)([^\w]*)/, replacer);
+
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+
+func.caesCipher
+func.caesDecrypt

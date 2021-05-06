@@ -18,9 +18,11 @@ function replacer(p){
   let lowerUpper = p.codePointAt(0) > 96 ? 'a'.codePointAt(0) : 'A'.codePointAt(0)
   return String.fromCodePoint((secret[i].codePointAt(0) - lowerUpper + 26 + shift % 26) % 26 + lowerUpper) 
 }
-console.log(console.log('This is secret. Message about "_" symbol!'.replace(/([^\D]*)/g, replacer)))
-console.log('This is secret. Message about "_" symbol!'.replace(/([a-zA-Z]*)/g, encoder))
-// function caesCipher(str, shift){
-//   str.replace(a-z, )
+let re = /([A-Za-z])/g
+let str = 'This is secret. Message about "_" symbol!'
+let newStr = str.replace(re, (match) => {
+  let lowerUpper = match.codePointAt(0) > 96 ? 'a'.codePointAt(0) : 'A'.codePointAt(0)
+  return String.fromCodePoint((match.codePointAt(0) - lowerUpper + 26 + shift % 26) % 26 + lowerUpper)
+})
 
-// }
+console.log(newStr)

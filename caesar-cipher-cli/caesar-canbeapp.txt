@@ -23,3 +23,8 @@ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/St
 
 func.caesCipher
 func.caesDecrypt
+
+let newStr = str.replace(re, (match) => { 
+    console.log({match}); 
+    return match.toUpperCase();
+});

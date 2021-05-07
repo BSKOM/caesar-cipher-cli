@@ -1,5 +1,5 @@
 const {coder} = require('./coder')
-const { parser } = require('./parser')
+// const { parser } = require('./parser')
 
 function parser(params) {
   let args = process.argv.slice(2)

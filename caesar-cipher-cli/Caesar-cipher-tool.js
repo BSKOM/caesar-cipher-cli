@@ -24,5 +24,8 @@ let newStr = str.replace(re, (match) => {
   let lowerUpper = match.codePointAt(0) > 96 ? 'a'.codePointAt(0) : 'A'.codePointAt(0)
   return String.fromCodePoint((match.codePointAt(0) - lowerUpper + 26 + shift % 26) % 26 + lowerUpper)
 })
+let coder = str.replace(re, (match) => {
+  return String.fromCodePoint((match.codePointAt(0) - 'A'.codePointAt(0) + (match > 'Z') ? 32 : 0 + 26 + shift % 26) % 26 + 'A'.codePointAt(0) + (match > 'Z') ? 32 : 0)
+})
 
-console.log(newStr)
+console.log(coder)

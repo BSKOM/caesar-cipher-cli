@@ -1,6 +1,6 @@
 function parser() {
   let args = process.argv.slice(2)
-  let allArg = ['', undefined, , ]
+  let allArg = ['', '', , ]
   try {
     for (let i = 0; i < args.length; i++) {
       switch (args[i]) {
@@ -14,7 +14,10 @@ function parser() {
           break;
         case '--shift':
         case '-s':
-          allArg[1] = args[i + 1]
+          if (!(parseInt(args[i + 1], 10))) {
+             throw 'arg:action - param must be integer number only';
+          }
+          allArg[1] = parseInt(args[i + 1], 10)
           i += 1
            break;
         case '--input':
@@ -34,7 +37,8 @@ function parser() {
     if (allArg[0].length === 0) {
       throw 'arg: action - required option is empty';
     }
-    if (typeof argShift === undefined) {
+    console.log(allArg)
+    if (allArg[1].length === 0) {
       throw 'arg: shift - required option is empty';
     }
   } catch (error) {

@@ -1,5 +1,15 @@
 const {coder} = require('./coder')
 const {parser} = require('./parser')
+const fs = require('fs')
+const path = require('path');
+
+// path.format({
+//   root: '/ignored',
+//   dir: '/home/user/dir',
+//   base: 'file.txt'
+// });
+
+// path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
 
 console.log(parser()[0])
 

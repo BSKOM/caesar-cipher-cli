@@ -4,13 +4,23 @@ const { pipeline } = require('stream')
 const { Transform } = require('stream')
 const fs = require('fs')
 const path = require('path')
+const { F_OK } = require('constants')
 
 
+const filePathIn = parser[2]
+const filePathOut = parser[3]
 
+function inTest() {
+  if (!fs.existsSync(filePathIn)) {
+    console.log('File not exist');
+  }
+  fs.readFile(filePathIn, 'utf-8',(e, str) => {
+    if (e) throw e})
+}
 
 const transformStream = new Transform({
   transform(chunk, _, done) {
-    let data = chunk.toString();
+    let data = chunk.toString()
     if (parser[0] === 'encode') 
       this.push(coder(data, shift, 1))
     else
@@ -18,13 +28,19 @@ const transformStream = new Transform({
     done()
   }
 })
+function outTest() {
+  fs.appendFile(filePathOut, (e, str) => {
+    if (e) throw e
+  })
+}
 
-const outputStream
 
-console.log(__dirname)
-console.log(__filename)
+// fs.appendFile()
 
-fs.appendFile()
+// console.log(__dirname)
+// console.log(__filename)
+
+
 
 
 // path.format({
@@ -35,11 +51,11 @@ fs.appendFile()
 
 // path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif')
 
-// pipeline(
-//   input_stream, 
-//   transform_stream, 
-//   output_stream 
-// )
+pipeline(
+  inTest(),
+  transformStream, 
+  outTest() 
+)
 // .then(success and error callbacks)
 
 // console.log(parser()[0])

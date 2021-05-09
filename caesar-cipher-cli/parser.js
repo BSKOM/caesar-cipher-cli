@@ -37,7 +37,6 @@ function parser() {
     if (allArg[0].length === 0) {
       throw 'arg: action - required option is empty';
     }
-    console.log(allArg)
     if (allArg[1].length === 0) {
       throw 'arg: shift - required option is empty';
     }
